@@ -1,0 +1,5 @@
+<div class="right side">
+  {{#foreach navigation}}
+  <a class="{{#if current}}active {{/if}}item" href="{{url absolute="true"}}">{{label}}</a>
+  {{/foreach}}
+</div>

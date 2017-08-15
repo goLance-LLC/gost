@@ -1,0 +1,115 @@
+body
+  color $color-text
+  background $color-pale
+  font-family 'Nunito Sans', sans-serif
+
+a
+  color $color-text
+
+h1, h2, h3, h4, h5
+  font-weight $font-extrabold
+  margin 0
+
+.gl.segment
+
+  > .title
+    margin-bottom $indent
+    margin-top ($indent / 2)
+    text-align center
+    text-transform uppercase
+
+  &.post
+
+    > .image
+      align-items center
+      display flex
+      justify-content center
+      margin-bottom $indent
+      max-height 300px
+      overflow hidden
+
+    > .title
+      letter-spacing 1px
+
+      ../ > h1.title
+        font-size 1.6em
+
+      ../ > h2.title
+        font-size 1.2em
+
+    > .content
+
+      h1, h2, h3, h4, h5
+        font-size 1em
+        font-weight $font-regular
+
+    > .author
+      text-align center
+
+      > .title
+        color $color-text
+
+        > .logo
+          border-radius 50%
+          height 40px
+          width @height
+
+        > .name
+          font-weight $font-semibold
+
+      > .date
+        color $color-grey-darker
+        font-size .9em
+
+  + .gl.segment
+    margin-top $indent
+
+.gl.list
+
+  &.post
+    list-style-type none
+
+    > .item
+      display flex
+
+      > .image
+        align-items center
+        display flex
+        flex 0 0 100px
+        justify-content center
+        margin-bottom $indent
+        max-height 60px
+        overflow hidden
+
+        + .content
+          margin-left $indent
+
+      + .item
+        border-top 1px solid $color-border
+        padding-top $indent
+        margin-top $indent
+
+.gl.chunk
+
+  &.date
+    color $color-grey-darker
+    font-size .9em
+
+.gl.feed
+  display flex
+
+  > *
+    margin ($indent / 2)
+
+  > .content
+    flex-grow 1
+
+  > aside
+    flex-shrink 0
+    width 300px
+
+  @media (max-width $media-large)
+    flex-direction column
+
+    > aside
+      width 100%

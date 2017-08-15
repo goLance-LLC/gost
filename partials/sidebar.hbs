@@ -1,0 +1,41 @@
+<aside>
+  <section class="gl segment">
+    <h4 class="title">Email Updates</h4>
+
+    <form class="gl form">
+      <div class="fluid field">
+        <input type="text" placeholder="your@email.com">
+      </div>
+
+      <div class="actions">
+        <button class="gl primary fluid button">Signup</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="gl segment">
+    {{#get "posts" limit="3" as |recents|}}
+
+    <h4 class="title">Recent Posts</h4>
+
+    <ul class="gl post list">
+      {{#foreach recents}}
+
+      <li class="item">
+        <a class="gl fluid image" href="{{url}}">
+          <img src="{{img_url feature_image}}" alt="{{title}}">
+        </a>
+
+        <section class="content">
+          <h5 class="title"><a href="{{url}}">{{title}}</a></h5>
+
+          <div class="gl date chunk">Posted <span title="{{date published_at format="MMMM DD, YYYY"}}">{{date published_at timeago="true"}}</span></div>
+        </section>
+      </li>
+
+      {{/foreach}}
+    </ul>
+
+    {{/get}}
+  </section>
+</aside>
