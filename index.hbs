@@ -4,14 +4,14 @@
 
 <article class="gl post segment">
   {{#if feature_image}}
-    <div class="gl fluid image">
+    <a class="gl fluid image" href="{{url}}">
       <img src="{{img_url feature_image}}" alt="{{title}}">
-    </div>
+    </a>
   {{/if}}
 
   <h2 class="title"><a href="{{url}}">{{title}}</a></h2>
 
-  <section class="content">{{content words="100"}}</section>
+  <section class="content">{{excerpt words="100"}}...</section>
 
   <footer class="author">
     {{#author}}

@@ -2,7 +2,13 @@
   <div class="gl large container">
     <div class="gl main menu">
       <div class="left side">
-
+        {{#if @blog.logo}}
+          <a class="logo item" href="/">
+            <img src="{{@blog.logo}}" alt="{{@blog.title}}">
+          </a>
+        {{else}}
+          {{@blog.title}}
+        {{/if}}
       </div>
 
       {{navigation}}

@@ -12,7 +12,7 @@ module.exports = {
     },
     javascripts: {
       entryPoints: {
-        'assets/source/scripts/index.js': 'assets/build/scripts.js',
+        'assets/source/scripts/index.js': 'scripts.js',
       },
     },
   },
@@ -32,6 +32,11 @@ module.exports = {
       open: false,
       notify: false,
       files: ['**/*.hbs'],
+    },
+  },
+  modules: {
+    autoRequire: {
+      'scripts.js': ['assets/source/scripts/index.js'],
     },
   },
   overrides: {

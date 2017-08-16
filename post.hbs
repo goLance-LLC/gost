@@ -10,7 +10,46 @@
   {{/if}}
 
   <h1 class="title">{{title}}</h1>
-  <section>{{content}}</section>
+  <section class="content">{{content}}</section>
+
+  <div class="gl light divider"></div>
+
+  <h3 class="title">Author</h3>
+  <section class="author">
+    {{#author}}
+      <a href="{{url}}" class="title">
+        {{#if profile_image}}
+          <img src="{{img_url profile_image}}" alt="{{name}}" class="logo">
+        {{/if}}
+        <h4 class="name">{{name}}</h4>
+      </a>
+
+      <section class="bio">{{bio}}</section>
+    {{/author}}
+
+    <div class="date">Posted <span title="{{date published_at format="MMMM DD, YYYY"}}">{{date published_at timeago="true"}}</span></div>
+  </section>
+
+
+  <div class="gl light divider"></div>
+
+  <h3 class="title">Leave A Reply</h3>
+  <section>
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+      this.page.url = "{{url}}";
+      this.page.identifier = "ghost-{{comment_id}}";
+      };
+      (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://golance.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
 </article>
 
 {{/post}}

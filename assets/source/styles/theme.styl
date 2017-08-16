@@ -14,11 +14,19 @@ h1, h2, h3, h4, h5
 
   > .title
     margin-bottom $indent
-    margin-top ($indent / 2)
     text-align center
     text-transform uppercase
 
   &.post
+
+    img
+    iframe
+      display block
+      margin-left auto
+      margin-right auto
+
+    > * + *
+      margin-top $indent
 
     > .image
       align-items center

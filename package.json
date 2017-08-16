@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "goui": "git://github.com/goLance-LLC/goui.git#master",
+    "medium-zoom": "^0.1.7",
     "normalize.css": "^7.0.0"
   }
 }
