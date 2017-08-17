@@ -32,12 +32,19 @@
     "browser-sync-brunch": "0.0.9",
     "brunch": "^2.10.10",
     "javascript-brunch": "^2.10.0",
-    "stylus-brunch": "^2.10.0"
+    "npm-run-all": "^4.0.2",
+    "purify-css": "^1.2.5",
+    "rimraf": "^2.6.1",
+    "stylus-brunch": "^2.10.0",
+    "uglify-js-brunch": "^2.10.0"
   },
   "scripts": {
     "start": "npm run dev",
     "dev": "brunch watch",
-    "build": "brunch build --production"
+    "build": "run-s build:clean build:run build:purify-css",
+    "build:clean": "rimraf ./assets/build",
+    "build:run": "brunch build --production",
+    "build:purify-css": "purifycss assets/build/styles.css \"**/*.hbs\" --out assets/build/styles.css --min"
   },
   "dependencies": {
     "goui": "git://github.com/goLance-LLC/goui.git#master",
