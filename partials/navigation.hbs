@@ -1,5 +1,13 @@
-<div class="right side">
+<div class="right side" data-element="navigation">
   {{#foreach navigation}}
-  <a class="{{#if current}}active {{/if}}item" href="{{url absolute="true"}}">{{label}}</a>
+    <a class="{{#if current}}active {{/if}}item" href="{{url absolute="true"}}">{{label}}</a>
   {{/foreach}}
+
+  <div class="nav item" data-element="toggle-button">
+    <div class="gl nav icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
 </div>

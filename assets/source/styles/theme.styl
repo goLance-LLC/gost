@@ -115,3 +115,101 @@ h1, h2, h3, h4, h5
 
     > aside
       width 100%
+
+.gl.section
+
+  &.head
+    position relative
+
+    > .container
+      position static
+      overflow auto
+
+.gl.menu
+
+  &.main
+
+    > .right.side
+
+      > .item
+        cursor pointer
+
+        &.nav
+          display none
+
+      @media (max-width: 865px)
+        background $color-primary
+        flex-direction column-reverse
+        position absolute
+        right 0
+        top 0
+        z-index 1
+
+        > .item
+          height 60px
+
+          &:not(.nav)
+            display none
+
+          &.nav
+            display flex
+            justify-content flex-end
+
+        &.shown
+
+          > .item
+
+            &:not(.nav)
+              display flex
+
+.gl.icon
+
+  &.nav
+    $top-first = 9px
+    $top-second = 18px
+    $height = 18px
+    cursor pointer
+    height $height
+    position relative
+    width 30px
+
+    > span
+      background #fff
+      display block
+      height 2px
+      left 0
+      opacity 1
+      position absolute
+      transform rotate(0deg)
+      transform-origin left center
+      transition left $transition-duration,
+                 opacity $transition-duration,
+                 top $transition-duration,
+                 transform $transition-duration,
+                 width $transition-duration
+      width 100%
+
+      &:nth-child(1)
+        top 0
+
+      &:nth-child(2)
+        top $top-first
+
+      &:nth-child(3)
+        top $top-second
+
+     &.open
+
+       > span
+
+        &:nth-child(1)
+          transform rotate(45deg)
+          top 0px
+
+        &:nth-child(2)
+          opacity 0
+          width 0%
+
+        &:nth-child(3)
+          transform rotate(-45deg)
+          top 21px
