@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "goui": "git://github.com/goLance-LLC/goui.git#master",
+    "infinite-scroll": "^3.0.1",
     "medium-zoom": "^0.1.7",
     "normalize.css": "^7.0.0"
   }
