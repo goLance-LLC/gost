@@ -1,10 +1,18 @@
 const InfiniteScroll = require('infinite-scroll');
 
-new InfiniteScroll('[data-element="content"]', {
-  path() {
-    const nextPage = this.loadCount === 0 ? 2 : this.loadCount + 1;
+if (!String.prototype.startsWith) {
+  String.prototype.startsWith = (searchString, position) =>
+    this.substr(position || 0, searchString.length) === searchString;
+}
 
-    return `/page/${nextPage}`;
-  },
+const pathname = window.location.pathname;
+const isHomepage = pathname === '/' || pathname.startsWith('/page/');
+
+if (!isHomepage) {
+  return;
+}
+
+new InfiniteScroll('[data-element="content"]', {
+  path: '/page/{{#}}',
   append: '.gl.post.segment',
 });
