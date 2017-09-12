@@ -3,6 +3,9 @@ body
   background $color-pale
   font-family 'Nunito Sans', sans-serif
 
+main
+  padding-top 100px
+
 a
   color $color-text
 
@@ -213,3 +216,300 @@ h1, h2, h3, h4, h5
         &:nth-child(3)
           transform rotate(-45deg)
           top 21px
+
+.gl.menu
+  align-items center
+  display flex
+  justify-content center
+
+  &.main
+    background transparent
+    font-size .9em
+    height 60px
+    left 0
+    padding-left  1.4em
+    padding-right @padding-left
+    position fixed
+    top 0
+    transform translateY(-85px)
+    transition background .5s, transform .5s
+    width 100%
+    z-index 11
+
+    > div
+      align-items stretch
+      display flex
+      font-weight 800
+      height 100%
+      justify-content space-between
+      max-width 1300px
+      width 100%
+
+    .item
+      align-items center
+      display flex
+      padding-right 1.5em
+      text-decoration none
+      white-space nowrap
+
+      &:not(.logo)
+        padding-left 1.5em
+
+      &:not(.logo):not(.mobile)
+
+        &:not(.button):not(.field)
+          align-items center
+          border-color transparent
+          border-style solid
+          border-width 2px
+          color $color-text
+          display flex
+          height 100%
+          padding-bottom $indent
+          padding-top @padding-bottom
+
+          &:hover
+          &.active
+            color $color-primary
+
+        &.button
+          margin-left $indent
+          text-transform none
+
+      &.field
+        backface-visibility hidden
+        box-shadow none
+        padding 0
+        position relative
+        transition box-shadow $transition-duration
+
+        > .icon
+          transform-origin 50% 50%
+          transition transform $transition-duration
+
+        input
+          font-size 1rem
+          padding-bottom .65em
+          padding-top @padding-bottom
+
+          +placeholder()
+            color $color-text
+
+        > .dropdown
+          background #fff
+          left 50%
+          opacity 0
+          pointer-events none
+          position absolute
+          top 100%
+          transform translate(-50%, -25%)
+          transition transform $transition-duration,
+                     opacity $transition-duration
+          width 100%
+
+          > .option
+            background @background
+            border none
+            box-shadow $field-box-shadow
+            cursor pointer
+            padding .8em $indent
+            text-transform none
+
+            &:hover
+            &.active
+              color $color-primary
+
+        &.opened
+
+          > .icon
+            transform rotate(180deg)
+
+          > .dropdown
+            opacity 1
+            pointer-events all
+            transform translate(-50%, 0)
+
+      &.mobile:not(.logo):not(.button)
+        $size = 3em
+        align-items stretch
+        cursor pointer
+        display flex
+        flex-direction column
+        justify-content center
+        padding 0
+        z-index 1
+
+        > .icon
+          align-self flex-end
+
+          ~ a
+            align-items center
+            color $color-primary
+            display none
+            justify-content flex-end
+            padding .5em 1.2em
+            text-transform uppercase
+            transition none
+
+            &:hover
+            &.active
+              background $color-primary
+              color #fff
+
+        &.active
+          background #fff
+
+          > .icon
+
+            ~ a
+              display flex
+
+    .side
+      align-items center
+      display flex
+      text-transform uppercase
+
+    &.unpinned
+      transform translateY(-85px)
+
+    &.pinned
+      transform translateY(0px)
+
+    &.topped
+      background transparent
+      transform translateY(0px)
+
+    &.untopped
+      background rgba(255,255,255,.95)
+
+      .item
+
+        &.field
+          box-shadow $field-box-shadow
+
+    @media not all and (max-width $media-hide-nav)
+
+      .side
+
+        &.right
+
+          > .mobile.item
+            display none !important
+
+    @media(max-width $media-hide-nav)
+
+      .side
+
+        &.left
+
+          > .item
+
+            &:not(.logo)
+              display none !important
+
+        &.right
+
+          > .item
+
+            &:not(.mobile)
+              display none !important
+
+  &.responsive
+
+    &.doubling
+      flex-wrap nowrap
+
+      @media(max-width $media-small)
+        flex-wrap wrap
+
+        > .item
+          flex-basis 50%
+
+.gl.mobile.nav
+  background #fff
+  display flex
+  flex-direction column
+  height 100%
+  position fixed
+  right 0
+  text-align right
+  top 0
+  transform translateX(200px)
+  transition transform $transition-duration
+  width 200px
+  z-index 12
+  padding-top 5em
+
+  > .item
+    padding ($indent * .75) $indent
+    transition none
+    position relative
+
+    &:not(:last-child)
+
+      &::after
+        background $color-grey-lightest
+        content ''
+        position absolute
+        left 50%
+        transform translateX(-50%)
+        bottom 0
+        height 1px
+        width 85%
+
+    &.primary.button
+      margin 2em .5em
+
+    &:hover
+    &.active
+      background $color-primary
+      color #fff
+
+      &::after
+        background transparent
+
+  /:root
+
+    body::after
+      background transparent
+      content ''
+      height 100%
+      left 0
+      position fixed
+      top 0
+      transition background $transition-duration
+      pointer-events none
+      width 100%
+      z-index 11
+
+  /:root.nav &
+    box-shadow -7px 0 10px hsla(#000, .25)
+    transform translateX(0)
+
+  /:root.nav
+    overflow hidden
+
+    @media (max-width $media-hide-nav)
+
+      body::after
+        background hsla(#000, .25)
+        pointer-events all
+
+  @media not all and (max-width $media-hide-nav)
+
+    &
+    + .gl.nav.icon
+      display none
+
+  + .gl.nav.icon
+    opacity 0
+    pointer-events none
+    position fixed
+    right .7em
+    top 1em
+    transition opacity $transition-duration
+    z-index 12
+
+    &.open
+      opacity 1
+      pointer-events all

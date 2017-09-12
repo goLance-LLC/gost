@@ -18,7 +18,7 @@ module.exports = {
   },
   plugins: {
     stylus: {
-      plugins: [require('autoprefixer-stylus')({ browsers: 'last 2 versions' })],
+      plugins: [require('autoprefixer-stylus')({ browsers: 'last 2 versions' })], // eslint-disable-line global-require
       includeCss: true,
       imports: [
         'node_modules/goui/source/utils/colors',
@@ -32,6 +32,13 @@ module.exports = {
       open: false,
       notify: false,
       files: ['**/*.hbs'],
+    },
+    babel: {
+      presets: [['env', {
+        targets: {
+          browsers: ['last 2 versions', 'safari >= 7'],
+        },
+      }]],
     },
   },
   modules: {

@@ -38,17 +38,23 @@
   },
   "dependencies": {
     "autoprefixer-stylus": "^0.14.0",
+    "babel-brunch": "^6.1.1",
+    "babel-preset-env": "^1.6.0",
     "browser-sync-brunch": "0.0.9",
     "brunch": "^2.10.10",
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "goui": "git://github.com/goLance-LLC/goui.git#master",
+    "headroom.js": "^0.9.4",
+    "infinite-scroll": "^3.0.1",
     "javascript-brunch": "^2.10.0",
+    "medium-zoom": "^0.1.7",
+    "normalize.css": "^7.0.0",
     "npm-run-all": "^4.0.2",
     "purify-css": "^1.2.5",
     "rimraf": "^2.6.1",
     "stylus-brunch": "^2.10.0",
-    "goui": "git://github.com/goLance-LLC/goui.git#master",
-    "infinite-scroll": "^3.0.1",
-    "medium-zoom": "^0.1.7",
-    "normalize.css": "^7.0.0",
     "uglify-es": "^3.1.0"
   }
 }

@@ -1,3 +1,3 @@
-require('./zoom');
-require('./menu');
-require('./infinite-scroll');
+require('./zoom').init();
+require('./nav').init();
+require('./infinite-scroll').init();
