@@ -15,18 +15,23 @@
 
   <footer class="author">
     {{#author}}
-      <a href="{{url}}" class="title">
-        {{#if profile_image}}
+      {{#if profile_image}}
+        <a href="{{url}}" class="title">
           <img src="{{img_url profile_image}}" alt="{{name}}" class="logo">
-        {{/if}}
-        <h4 class="name">{{name}}</h4>
-      </a>
+        </a>
+      {{/if}}
 
-      <section class="bio">{{bio}}</section>
+      <div class="content">
+        <h4 class="name"><a href="{{url}}">{{name}}</a></h4>
+        <section class="bio">{{bio}}</section>
+        <div class="date">Posted <span title="{{date published_at format="MMMM DD, YYYY"}}">{{date published_at timeago="true"}}</span></div>
+      </div>
     {{/author}}
-
-    <div class="date">Posted <span title="{{date published_at format="MMMM DD, YYYY"}}">{{date published_at timeago="true"}}</span></div>
   </footer>
 </article>
 
 {{/foreach}}
+
+{{#if pagination.pages}}
+  {{pagination}}
+{{/if}}
