@@ -35,21 +35,22 @@
     "npm-run-all": "^4.0.2",
     "purify-css": "^1.2.5",
     "rimraf": "^2.6.1",
-    "stylus-brunch": "^2.10.0",
-    "uglify-js-brunch": "^2.10.0"
+    "stylus-brunch": "^2.10.0"
   },
   "scripts": {
     "start": "npm run dev",
     "dev": "brunch watch",
-    "build": "run-s build:clean build:run build:purify-css",
+    "build": "run-s build:clean build:run build:purify-css build:uglify-es",
     "build:clean": "rimraf ./assets/build",
     "build:run": "brunch build --production",
+    "build:uglify-es": "uglifyjs --compress --mangle --output assets/build/scripts.js -- assets/build/scripts.js",
     "build:purify-css": "purifycss assets/build/styles.css \"**/*.hbs\" --out assets/build/styles.css --min"
   },
   "dependencies": {
     "goui": "git://github.com/goLance-LLC/goui.git#master",
     "infinite-scroll": "^3.0.1",
     "medium-zoom": "^0.1.7",
-    "normalize.css": "^7.0.0"
+    "normalize.css": "^7.0.0",
+    "uglify-es": "^3.1.0"
   }
 }

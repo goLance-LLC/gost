@@ -41,7 +41,6 @@ module.exports = {
   },
   overrides: {
     production: {
-      optimize: true,
       sourceMaps: false,
     },
   },
