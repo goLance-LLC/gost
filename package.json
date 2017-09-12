@@ -30,7 +30,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "brunch watch",
-    "build": "run-s build:clean build:run build:purify-css build:uglify-es",
+    "build": "run-s build:clean build:run build:uglify-es",
     "build:clean": "rimraf ./assets/build",
     "build:run": "brunch build --production",
     "build:uglify-es": "uglifyjs --compress --mangle --output assets/build/scripts.js -- assets/build/scripts.js",
