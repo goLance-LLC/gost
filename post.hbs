@@ -2,7 +2,7 @@
 
 {{#post}}
 
-<article class="gl post segment">
+<article class="gl detail post segment">
   {{#if feature_image}}
     <div class="gl fluid image">
       <img src="{{img_url feature_image}}" alt="{{title}}">
@@ -12,24 +12,27 @@
   <h1 class="title">{{title}}</h1>
   <section class="content">{{content}}</section>
 
-  <div class="gl light divider"></div>
+  <div class="gl hidden divider"></div>
 
-  <h3 class="title">Author</h3>
-  <section class="author">
-    {{#author}}
-      {{#if profile_image}}
-        <a href="{{url}}" class="title">
-          <img src="{{img_url profile_image}}" alt="{{name}}" class="logo">
-        </a>
-      {{/if}}
+  <footer>
+    <section class="gl author chunk">
+      {{#author}}
+        {{#if profile_image}}
+          <a href="{{url}}" class="title">
+            <img src="{{img_url profile_image}}" alt="{{name}}" class="logo">
+          </a>
+        {{/if}}
 
-      <div class="content">
-        <h4 class="name"><a href="{{url}}">{{name}}</a></h4>
-        <section class="bio">{{bio}}</section>
-        <div class="date">Posted <span title="{{date published_at format="MMMM DD, YYYY"}}">{{date published_at timeago="true"}}</span></div>
-      </div>
-    {{/author}}
-  </section>
+        <div class="content">
+          <h4 class="name"><a href="{{url}}">{{name}}</a></h4>
+          <section class="bio">{{bio}}</section>
+          <div class="date">Posted <span title="{{date published_at format="MMMM DD, YYYY"}}">{{date published_at timeago="true"}}</span></div>
+        </div>
+      {{/author}}
+    </section>
+
+    <div class="addthis_inline_share_toolbox"></div>
+  </footer>
 
   <div class="gl light divider"></div>
 
@@ -52,4 +55,46 @@
   </section>
 </article>
 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59ba53934198a66e"></script>
+
 {{/post}}
+
+{{#get "posts" limit="3" filter="tags:[{{post.tags}}]+id:-{{post.id}}" include="tags,author,published_at"}}
+<div class="gl hidden divider"></div>
+
+<ul class="gl three post cards">
+  {{#foreach posts}}
+
+  <li class="item">
+    <a class="gl fluid image" href="{{url}}">
+      <img src="{{img_url feature_image}}" alt="{{title}}">
+    </a>
+
+    <section class="content">
+      <h5 class="title"><a href="{{url}}">{{title}}</a></h5>
+
+      <div class="gl author chunk">
+        {{#author}}
+          {{#if profile_image}}
+            <a href="{{url}}" class="title">
+              <img src="{{img_url profile_image}}" alt="{{name}}" class="logo">
+            </a>
+          {{/if}}
+
+          <div class="content">
+            <h4 class="name"><a href="{{url}}">{{name}}</a></h4>
+            {{#if bio}}
+              <section class="bio">{{bio}}</section>
+            {{/if}}
+            <div class="date">Posted <span title="{{date ../published_at format="MMMM DD, YYYY"}}">{{date ../published_at timeago="true"}}</span></div>
+          </div>
+        {{/author}}
+      </div>
+    </section>
+
+  </li>
+
+  {{/foreach}}
+</ul>
+
+{{/get}}

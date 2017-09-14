@@ -9,12 +9,20 @@ body
 main
   padding-top 100px
 
-a
-  color $color-text
+  @media (max-width $media-medium)
+    padding-top 30px
 
 h1, h2, h3, h4, h5
   font-weight $font-extrabold
   margin 0
+
+.title
+
+  > a
+    color $color-text
+
+    &:hover
+      color $color-primary
 
 .gl.segment
 
@@ -26,23 +34,23 @@ h1, h2, h3, h4, h5
     img
     iframe
       display block
-      margin-left auto
-      margin-right auto
 
     > * + *
       margin-top $indent
 
+    > .more
+      margin-top ($indent / 2)
+
     > .image
       align-items center
       display flex
-      justify-content center
       margin-bottom $indent
       max-height 300px
       overflow hidden
 
       > img
         max-width 100%
-        width auto
+        width 100%
 
     > .title
 
@@ -52,28 +60,29 @@ h1, h2, h3, h4, h5
       ../ > h2.title
         font-size 1.4em
 
-    > .author
-      align-items center
-      display inline-flex
+    &.preview
 
-      > .title
-        color $color-text
-        margin-right ($indent / 2)
+      img
+        transition transform 2s
 
-        > .logo
-          border-radius 50%
-          height 40px
-          width @height
+        &:hover
+          transform scale(1.2)
 
-      > .content
-        line-height 1.2
+    &.detail
 
-        > .name
-          font-weight $font-semibold
+      > footer
+        align-items center
+        display flex
 
-        > .date
-          color $color-grey-darker
-          font-size .9em
+        > .addthis_inline_share_toolbox
+          margin-left auto
+
+        @media (max-width $media-medium)
+          flex-direction column
+
+          > .addthis_inline_share_toolbox
+            margin-left 0
+            margin-top ($indent * 2)
 
   + .gl.segment
     margin-top $indent
@@ -108,6 +117,33 @@ h1, h2, h3, h4, h5
   &.date
     color $color-grey-darker
     font-size .9em
+    line-height 1.2
+
+  &.author
+    align-items center
+    display inline-flex
+
+    > .title
+      color $color-text
+      margin-right ($indent / 2)
+
+      > .logo
+        border-radius 50%
+        height 40px
+        width @height
+
+    > .content
+      line-height 1.2
+
+      > .name
+        font-weight $font-semibold
+
+        > a
+          color $color-text
+
+      > .date
+        color $color-grey-darker
+        font-size .9em
 
 .gl.feed
   display flex
@@ -561,3 +597,47 @@ h1, h2, h3, h4, h5
 
     &:hover
       opacity .8
+
+.gl.container
+  width calc(100% - 2vw)
+
+.gl.link
+  color $color-primary
+
+  &.bold
+    font-weight $font-bold
+
+  &:hover
+    color $color-primary-darker
+
+
+.gl.post.cards
+  display flex
+  flex-wrap nowrap
+  list-style none
+  margin 0
+  padding 0
+
+  > .item
+    background #fff
+    margin ($indent / 2)
+
+    > .content
+      padding ($indent / 2)
+
+      > * + *
+        margin-top ($indent / 2)
+
+      .author
+        font-size .8em
+
+  &.three
+
+    > .item
+      flex-basis 33.33%
+
+    @media (max-width 550px)
+      flex-wrap wrap
+
+      > .item
+        flex-basis 100%

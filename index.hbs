@@ -2,7 +2,7 @@
 
 {{#foreach posts}}
 
-<article class="gl post segment">
+<article class="gl preview post segment">
   {{#if feature_image}}
     <a class="gl fluid image" href="{{url}}">
       <img src="{{img_url feature_image}}" alt="{{title}}">
@@ -13,7 +13,9 @@
 
   <section class="content">{{excerpt words="100"}}...</section>
 
-  <footer class="author">
+  <div class="more"><a href="{{url}}" class="gl bold link">Continue Reading</a></div>
+
+  <footer class="gl author chunk">
     {{#author}}
       {{#if profile_image}}
         <a href="{{url}}" class="title">
