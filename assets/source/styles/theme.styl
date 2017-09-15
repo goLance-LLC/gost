@@ -34,6 +34,8 @@ h1, h2, h3, h4, h5
     img
     iframe
       display block
+      margin-left auto
+      margin-right auto
       max-width 100%
 
     > * + *
@@ -63,11 +65,13 @@ h1, h2, h3, h4, h5
 
     &.preview
 
-      img
-        transition transform 2s
+      .gl.post.image
 
-        &:hover
-          transform scale(1.2)
+        > img
+          transition transform 1s
+
+          &:hover
+            transform scale(1.2)
 
     &.detail
 
