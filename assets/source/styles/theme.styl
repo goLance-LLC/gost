@@ -227,6 +227,26 @@ h1, h2, h3, h4, h5
           transform rotate(-45deg)
           top 21px
 
+  &.social
+
+    &.inverted
+      transition transform $transition-duration
+
+      &.linkedin
+        background $color-linkedin
+
+      &.twitter
+        background $color-twitter
+
+      &.facebook
+        background $color-facebook
+
+      &.youtube
+        background $color-youtube
+
+      &:hover
+        transform scale(1.2)
+
 .gl.menu
   align-items center
   display flex
@@ -598,6 +618,7 @@ h1, h2, h3, h4, h5
 
     &:hover
       opacity .8
+
 
 .gl.container
   width calc(100% - 2vw)
