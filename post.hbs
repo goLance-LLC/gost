@@ -34,6 +34,30 @@
     <div class="addthis_inline_share_toolbox"></div>
   </footer>
 
+  <div class="gl more posts segment">
+    {{#prev_post}}
+    <div class="prev">
+      <i class="gl icon">
+        <svg>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ei-chevron-left-icon"></use>
+        </svg>
+      </i>
+      <a href="{{url}}">{{title}}</a>
+    </div>
+    {{/prev_post}}
+
+    {{#next_post}}
+    <div class="next">
+      <a href="{{url}}">{{title}}</a>
+      <i class="gl icon">
+        <svg>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ei-chevron-right-icon"></use>
+        </svg>
+      </i>
+    </div>
+    {{/next_post}}
+  </div>
+
   <div class="gl light divider"></div>
 
   <h3 class="title">Leave A Reply</h3>

@@ -85,6 +85,42 @@ h1, h2, h3, h4, h5
             margin-left 0
             margin-top ($indent * 2)
 
+  &[class*='more posts']
+    align-items center
+    display flex
+    padding-left 0
+    padding-right 0
+    flex-wrap wrap
+
+    .gl.icon
+      height 2em
+      width 2em
+      fill $color-grey-darkest
+
+    > *
+
+      &:not(:only-child)
+
+        &.prev
+          padding-right ($indent / 2)
+
+        &.next
+          padding-left ($indent / 2)
+
+    > .prev
+    > .next
+      align-items center
+      display flex
+      padding-top ($indent / 2)
+      font-weight $font-bold
+
+    > .prev
+      margin-right auto
+
+    > .next
+      text-align right
+      margin-left auto
+
   + .gl.segment
     margin-top $indent
 
