@@ -58,4 +58,20 @@
 
     {{/get}}
   </section>
+
+  {{#get "tags" include="count.posts" limit=10 order="count.posts desc"}}
+  {{#if tags}}
+    <section class="gl segment">
+      <h4 class="title">Blog Topics</h4>
+
+      <ul class="gl divided capitalized list">
+        {{#foreach tags}}
+          <li class="item">
+            <a href="{{url}}" title="{{name}}">{{name}}</a>
+          </li>
+        {{/foreach}}
+      </ul>
+    </section>
+  {{/if}}
+  {{/get}}
 </aside>
