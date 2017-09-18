@@ -30,6 +30,16 @@
       </div>
     {{/author}}
   </footer>
+
+
+  {{#if tags.length}}
+  <div>
+    {{#foreach tags}}
+      <a href="{{url}}" title="{{name}}" class="gl small tag label">{{name}}</a>
+      </li>
+    {{/foreach}}
+  </div>
+  {{/if}}
 </article>
 
 {{/foreach}}

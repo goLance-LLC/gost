@@ -34,6 +34,15 @@
     <div class="addthis_inline_share_toolbox"></div>
   </footer>
 
+  {{#if tags.length}}
+  <div>
+    {{#foreach tags}}
+      <a href="{{url}}" title="{{name}}" class="gl small tag label">{{name}}</a>
+      </li>
+    {{/foreach}}
+  </div>
+  {{/if}}
+
   <div class="gl more posts segment">
     {{#prev_post}}
     <div class="prev">
