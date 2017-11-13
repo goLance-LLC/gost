@@ -192,25 +192,30 @@ h1, h2, h3, h4, h5
         font-size .9em
 
 .gl.feed
+  $margin = 8px
+  $sidebar-width = 350px
   display flex
+  width 100%
 
   > *
-    margin ($indent / 2)
+    margin $margin
     min-width 0
 
   > .content
     flex-grow 1
+    max-width 'calc(100% - %s)' % ($margin * 4 + $sidebar-width)
 
   > aside
     flex-shrink 0
-    width 350px
+    flex-basis $sidebar-width
 
   @media (max-width $media-large)
     flex-direction column
+    max-width none
 
     > aside
+      flex-basis 100%
       margin-top $indent
-      width 100%
 
 .gl.section
 
