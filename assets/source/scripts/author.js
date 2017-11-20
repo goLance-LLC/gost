@@ -1,7 +1,7 @@
 const { queryAll, trimHtml, trimText } = require('./utils');
 const { getUser } = require('./api');
 
-const getUserProfileLink = username => `http://localhost:8100/users/${username}`;
+const getUserProfileLink = username => `http://golance.com/users/${username}`;
 
 const authorAttributes = [{
   dataAttributeName: 'name',
