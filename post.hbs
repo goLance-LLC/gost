@@ -12,27 +12,53 @@
   <h1 class="title">{{title}}</h1>
   <section class="content">{{content}}</section>
 
-  <div class="gl hidden divider"></div>
 
-  <footer>
+  {{#author}}
+  {{#if location}}
+  <footer data-author="{{location}}">
+    <div class="gl light nowrap center aligned indented divider">About the Author</div>
     <section class="gl author chunk">
-      {{#author}}
-        {{#if profile_image}}
-          <a href="{{url}}" class="title">
-            <img src="{{img_url profile_image}}" alt="{{name}}" class="logo">
-          </a>
-        {{/if}}
+      <div class="fixed info">
 
-        <div class="content">
-          <h4 class="name"><a href="{{url}}">{{name}}</a></h4>
-          <section class="bio">{{bio}}</section>
-          <div class="date">Posted <span title="{{date ../published_at format="MMMM DD, YYYY"}}">{{date ../published_at timeago="true"}}</span></div>
+        <div class="title">
+          <div class="gl large dummy cover avatar image">
+            <img alt=" " data-author-avatar>
+          </div>
         </div>
-      {{/author}}
-    </section>
 
-    <div class="addthis_inline_share_toolbox"></div>
+        <a class="gl small primary button" target="_blank" data-author-link>Hire Now</a>
+      </div>
+
+      <div class="content">
+        <h2 class="name" data-author-name>
+          <div class="gl placeholder">
+            <div></div>
+          </div>
+        </h2>
+
+        <div data-author-headline class="gl headline chunk">
+          <div class="gl placeholder">
+            <div></div>
+          </div>
+        </div>
+
+        <section class="bio" data-author-summary>
+          <div class="gl placeholder">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </section>
+
+        <div class="date">Posted <span title="{{date ../published_at format="MMMM DD, YYYY"}}">{{date ../published_at timeago="true"}}</span></div>
+      </div>
+    </section>
   </footer>
+  {{/if}}
+  {{/author}}
 
   {{#if tags.length}}
   <div>
@@ -42,6 +68,10 @@
     {{/foreach}}
   </div>
   {{/if}}
+
+  <div class="gl social links segment">
+    <div class="addthis_inline_share_toolbox"></div>
+  </div>
 
   <div class="gl more posts segment">
     {{#prev_post}}
@@ -115,15 +145,12 @@
           {{#author}}
             {{#if profile_image}}
               <a href="{{url}}" class="title">
-                <img src="{{img_url profile_image}}" alt="{{name}}" class="logo">
+                <img src="{{img_url profile_image}}" alt="{{name}}" class="avatar">
               </a>
             {{/if}}
 
             <div class="content">
               <h4 class="name"><a href="{{url}}">{{name}}</a></h4>
-              {{#if bio}}
-                <section class="bio">{{bio}}</section>
-              {{/if}}
               <div class="date">Posted <span title="{{date ../published_at format="MMMM DD, YYYY"}}">{{date ../published_at timeago="true"}}</span></div>
             </div>
           {{/author}}

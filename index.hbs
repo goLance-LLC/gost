@@ -15,17 +15,18 @@
 
   <div class="more"><a href="{{url}}" class="gl bold link">Continue Reading</a></div>
 
-  <footer class="gl author chunk">
+  <footer class="gl middle aligned author chunk">
     {{#author}}
-      {{#if profile_image}}
-        <a href="{{url}}" class="title">
-          <img src="{{img_url profile_image}}" alt="{{name}}" class="logo">
-        </a>
-      {{/if}}
+      <div class="info">
+        {{#if profile_image}}
+        <div class="title">
+          <img src="{{img_url profile_image}}" alt="{{name}}" class="avatar">
+        </div>
+        {{/if}}
+      </div>
 
       <div class="content">
-        <h4 class="name"><a href="{{url}}">{{name}}</a></h4>
-        <section class="bio">{{bio}}</section>
+        <h4 class="name">{{name}}</h4>
         <div class="date">Posted <span title="{{date ../published_at format="MMMM DD, YYYY"}}">{{date ../published_at timeago="true"}}</span></div>
       </div>
     {{/author}}

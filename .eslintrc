@@ -5,6 +5,7 @@
   },
   "rules": {
     "arrow-parens": ["error", "as-needed"],
-    "no-new": "off"
+    "no-new": "off",
+    "no-param-reassign": "off"
   }
 }
