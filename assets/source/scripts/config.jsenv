@@ -2,7 +2,7 @@ function ({ CONFIG = 'development' }) {
   switch (CONFIG) {
     case 'development':
       return {
-        rootUrl: 'http://localhost',
+        rootUrl: 'http://localhost:8100',
       };
       break;
 
