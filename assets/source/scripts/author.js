@@ -1,7 +1,9 @@
 const { queryAll, trimHtml, trimText } = require('./utils');
-const { getUser } = require('./api');
+const { getUser, getCompany } = require('./api');
+const { rootUrl } = require('./config.jsenv');
 
-const getUserProfileLink = username => `http://golance.com/users/${username}`;
+const getUserProfileLink = username => `${rootUrl}/users/${username}`;
+const COMPANY_PREFIX = 'COMPANY:';
 
 const authorAttributes = [{
   dataAttributeName: 'name',

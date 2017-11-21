@@ -1,0 +1,23 @@
+function ({ CONFIG = 'development' }) {
+  switch (CONFIG) {
+    case 'development':
+      return {
+        rootUrl: 'http://localhost',
+      };
+      break;
+
+    case 'staging': {
+      return {
+        rootUrl: 'https://stage.golance.com:445',
+      };
+      break;
+    }
+
+    case 'production': {
+      return {
+        rootUrl: 'https://blog.golance.com',
+      };
+      break;
+    }
+  }
+}
