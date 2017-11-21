@@ -33,15 +33,15 @@ exports.trimText = (
     readMoreNewPage = false,
   } = {},
 ) => {
-  let trimmedString = keepWords ? text.replace(new RegExp(`^(.{${length}}[^\\s]*).*`), '$1') : text.substr(0, length);
+  let trimmedText = keepWords ? text.replace(new RegExp(`^(.{${length}}[^\\s]*).*`), '$1') : text.substr(0, length);
 
-  if (trimmedString.length && replaceWithDots) {
-    trimmedString += '...';
+  if (replaceWithDots && trimmedText.length && text.length > trimmedText.length) {
+    trimmedText += '...';
   }
 
   if (readMoreLink) {
-    trimmedString = `<span>${trimmedString} <a href="${readMoreLink}"${readMoreNewPage ? ' target="_blank"' : ''}>${readMoreText}</a><span>`;
+    trimmedText = `<span>${trimmedText} <a href="${readMoreLink}"${readMoreNewPage ? ' target="_blank"' : ''}>${readMoreText}</a><span>`;
   }
 
-  return trimmedString;
+  return trimmedText;
 };

@@ -6,6 +6,7 @@
   "rules": {
     "arrow-parens": ["error", "as-needed"],
     "no-new": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "object-curly-newline": "off"
   }
 }

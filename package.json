@@ -42,6 +42,7 @@
     "babel-brunch": "^6.1.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-2": "^6.24.1",
     "browser-sync-brunch": "0.0.9",
     "brunch": "^2.10.10",
     "deepmerge": "^2.0.1",

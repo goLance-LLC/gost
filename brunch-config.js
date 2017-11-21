@@ -38,7 +38,7 @@ module.exports = {
         targets: {
           browsers: ['last 2 versions'],
         },
-      }]],
+      }], 'stage-2'],
     },
   },
   modules: {
