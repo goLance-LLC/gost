@@ -8,14 +8,14 @@ function ({ CONFIG = 'development' }) {
 
     case 'staging': {
       return {
-        rootUrl: 'https://stage.golance.com:445',
+        rootUrl: 'https://stage.golance.com',
       };
       break;
     }
 
     case 'production': {
       return {
-        rootUrl: 'https://blog.golance.com',
+        rootUrl: 'https://golance.com',
       };
       break;
     }
