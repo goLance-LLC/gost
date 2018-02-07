@@ -53,6 +53,7 @@
     "headroom.js": "^0.9.4",
     "infinite-scroll": "^3.0.1",
     "javascript-brunch": "^2.10.0",
+    "js-cookie": "^2.2.0",
     "jsenv-brunch": "^2.0.0",
     "json-brunch": "^1.5.4",
     "medium-zoom": "^0.1.7",
