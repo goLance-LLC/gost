@@ -30,11 +30,13 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "brunch watch",
-    "build": "run-s build:clean build:run build:uglify-es",
     "build:clean": "rimraf ./assets/build",
+    "build:purify-css": "purifycss assets/build/styles.css \"**/*.hbs\" --out assets/build/styles.css --min",
+    "build:minify-scripts": "uglifyjs --compress --mangle --output assets/build/scripts.js -- assets/build/scripts.js",
+    "build:minify-styles": "csso assets/build/styles.css --output assets/build/styles.css",
+    "build:minify": "run-p build:minify-scripts build:minify-styles",
     "build:run": "brunch build --production",
-    "build:uglify-es": "uglifyjs --compress --mangle --output assets/build/scripts.js -- assets/build/scripts.js",
-    "build:purify-css": "purifycss assets/build/styles.css \"**/*.hbs\" --out assets/build/styles.css --min"
+    "build": "run-s build:clean build:run build:minify"
   },
   "dependencies": {
     "ajv": "^5.3.0",
@@ -45,6 +47,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "browser-sync-brunch": "0.0.9",
     "brunch": "^2.10.10",
+    "csso-cli": "^1.1.0",
     "deepmerge": "^2.0.1",
     "eslint": "^4.6.1",
     "eslint-config-airbnb-base": "^12.0.0",
