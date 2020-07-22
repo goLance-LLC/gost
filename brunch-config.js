@@ -34,11 +34,11 @@ module.exports = {
       files: ['**/*.hbs'],
     },
     babel: {
-      presets: [['env', {
+      presets: [['@babel/preset-env', {
         targets: {
           browsers: ['last 2 versions'],
         },
-      }], 'stage-2'],
+      }]],
     },
   },
   modules: {
