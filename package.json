@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.10.4",
-    "ajv": "^5.3.0",
+    "ajv": "^6.12.3",
     "autoprefixer-stylus": "^0.14.0",
     "babel-brunch": "^7.0.0",
     "babel-polyfill": "^6.26.0",
